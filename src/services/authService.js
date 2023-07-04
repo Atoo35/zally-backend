@@ -11,7 +11,7 @@ const sendMagicLink = async (email) => {
         }, config.server.secret, {
             expiresIn: 300, // 5 minutes
         });
-        const link = `${config.server.serverUrl.trim().toString()}/login?token=${jwtToken}`;
+        const link = `${config.server.serverUrl.trim().toString()}/verify?token=${jwtToken}`;
         console.info(`authService: sendMagicLink for email:${email} with link:${link}`);
         await sendEmail(email, 'Magic Link', `Please <a href=${link}>click here</a> to verify`);
     } catch (error) {

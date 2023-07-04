@@ -4,7 +4,7 @@ class INVALID_TOKEN extends Error {
     constructor () {
         super();
         Error.captureStackTrace(this, this.constructor);
-        this.name = 'INVALID_TOKEN';
+        this.error = 'INVALID_TOKEN';
         this.message = 'Invalid token';
         this.statusCode = 400;
     }

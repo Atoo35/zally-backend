@@ -6,8 +6,8 @@ const errorHandler = (error, req, res, next) => {
             const { statusCode, message, details } = error;
             res.status(statusCode).json({ message, details });
         } else {
-            const { message } = error;
-            res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ message });
+            const { message, name } = error;
+            res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ message, error: name });
         }
     }
     next(error);
