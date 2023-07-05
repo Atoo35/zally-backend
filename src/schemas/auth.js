@@ -12,7 +12,14 @@ const verifyMagicLink = {
     }),
 };
 
+const logout = {
+    body: Joi.object({
+        email: Joi.string().regex(/^(.+)@(.+)$/).required(),
+    }),
+};
+
 module.exports = {
     sendMagicLink,
     verifyMagicLink,
+    logout,
 };

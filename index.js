@@ -24,7 +24,6 @@ app.use(middlewares.errorHandler);
 // const db = require('./src/models');
 // db.sequelize.sync({ alter: true }).then(() => {
 //     console.log('Resync DB');
-//     // populateDBWithPresetData();
 // });
 const server = http.createServer(app);
 const PORT = config.server.port || process.env.PORT;

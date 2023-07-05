@@ -16,4 +16,6 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
+db.tokens = require('./tokens')(sequelize, Sequelize);
+
 module.exports = db;

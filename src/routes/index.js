@@ -8,4 +8,5 @@ module.exports = (app) => {
 
     app.post('/auth/send-link', celebrate(authSchema.sendMagicLink), authController.sendMagicLink);
     app.get('/auth/verify', celebrate(authSchema.verifyMagicLink), authController.verifyMagicLink);
+    app.post('/auth/logout', celebrate(authSchema.logout), authController.logout);
 };

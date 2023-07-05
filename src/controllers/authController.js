@@ -24,7 +24,19 @@ const verifyMagicLink = async (req, res, next) => {
     }
 };
 
+const logout = async (req, res, next) => {
+    try {
+        const { email } = req.body;
+        console.info(`authController: logout for email:${email}`);
+        await authService.logout(email);
+        res.status(OK).json({ message: 'Logged out' });
+    } catch (error) {
+        next(error);
+    }
+};
+
 module.exports = {
     sendMagicLink,
     verifyMagicLink,
+    logout,
 };
