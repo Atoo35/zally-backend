@@ -1,6 +1,6 @@
 const nodemailer = require('nodemailer');
 const { email } = require('../config');
-
+// Using mailtrap.io for testing
 const transporter = nodemailer.createTransport({
     host: 'sandbox.smtp.mailtrap.io',
     port: email.port,

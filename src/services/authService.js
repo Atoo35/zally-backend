@@ -3,7 +3,6 @@ const config = require('../config/index');
 const { sendEmail } = require('../utils/email');
 const { INVALID_TOKEN } = require('../common/errors');
 const tokenRepository = require('../repositories/tokenRepository');
-const { TOKEN_STATUS } = require('../common/constants');
 
 const sendMagicLink = async (email) => {
     const jwtToken = jwt.sign({

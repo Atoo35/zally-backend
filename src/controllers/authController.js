@@ -17,8 +17,8 @@ const verifyMagicLink = async (req, res, next) => {
     try {
         const { token } = req.query;
         console.info(`authController: verifyMagicLink for token:${token}`);
-        const decoded = await authService.verifyMagicLink(token);
-        res.status(OK).json(decoded);
+        const response = await authService.verifyMagicLink(token);
+        res.status(OK).json(response);
     } catch (error) {
         next(error);
     }

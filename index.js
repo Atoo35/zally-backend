@@ -21,10 +21,12 @@ routes(app);
 app.use(errors());
 app.use(middlewares.errorHandler);
 
+/* For quick db resync with the models updated in the code */
 // const db = require('./src/models');
 // db.sequelize.sync({ alter: true }).then(() => {
 //     console.log('Resync DB');
 // });
+
 const server = http.createServer(app);
 const PORT = config.server.port || process.env.PORT;
 server.listen(PORT, '0.0.0.0', () => {
