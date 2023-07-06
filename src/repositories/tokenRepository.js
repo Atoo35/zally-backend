@@ -10,6 +10,7 @@ const logout = async (email) => Tokens.update({
 }, {
     where: {
         email,
+        status: TOKEN_STATUS.ACTIVE,
     },
 });
 

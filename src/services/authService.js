@@ -23,11 +23,12 @@ const verifyMagicLink = async (token) => {
     if (decoded.type !== 'magicLink') {
         throw new INVALID_TOKEN();
     }
+    await tokenRepository.logout(decoded.email);
     const jwtToken = jwt.sign({
         email: decoded.email,
         type: 'accessToken',
     }, config.server.secret, {
-        expiresIn: 300, // 5 minutes
+        expiresIn: 86400, // 1 day
     });
     await tokenRepository.create({ access_token: jwtToken, email: decoded.email, type: 'accessToken' });
     return { email: decoded.email, accessToken: jwtToken };
